@@ -2,7 +2,7 @@
 
 ## 폴더 구조
 
-실행 : **npx express-generator**
+생성 : **npx express-generator**
 
 폴더 구조 :  
 ├── app.js  
@@ -18,9 +18,9 @@
 │ ├── index.js  
 │ └── users.js  
 └── views  
- ├── error.pug  
- ├── index.pug  
- └── layout.pug
+    ├── error.pug  
+    ├── index.pug  
+    └── layout.pug
 
 ## 실행 방법
 

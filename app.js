@@ -1,12 +1,14 @@
-const createError = require('http-errors');
-const express = require('express');
-const path = require('path');
-const cookieParser = require('cookie-parser');
-const logger = require('morgan');
+// Libraries
+import createError from 'http-errors';
+import express from 'express';
+import path from 'path';
+import cookieParser from 'cookie-parser';
+import logger from 'morgan';
+import { fileURLToPath } from 'url';
 
-const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
-
+// Modules
+import indexRouter from './routes/indexRouter.js';
+import usersRouter from './routes/usersRouter.js';
 const app = express();
 /**
  * [분석]
@@ -17,6 +19,10 @@ const app = express();
  * 동일한 메모리를 참조하기에 다른 모듈에서 수정시 원본에도 영향이 갑니다.
  */
 
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -25,7 +31,11 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+
+
+// app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
+
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
@@ -56,4 +66,4 @@ app.use(function(err, req, res, next) {
   res.render('error',{ title: "Error", message: "ERROR" });
 });
 
-module.exports = app;
+export default app;
