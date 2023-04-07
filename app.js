@@ -1,17 +1,25 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+const indexRouter = require('./routes/index');
+const usersRouter = require('./routes/users');
 
-var app = express();
+const app = express();
+/**
+ * [분석]
+ * bin/app에서 app 변수를 import하여서 다시 var app= require("../app")으로
+ * 재선언 하였습니다. 이것은 허용되는 관습인데, 다른 파일에 나눠진 별도의 인스턴스입니다.
+ * 
+ * export한것이 객체이기에, require()이 live binding을 지원하지 않는다하더라도,
+ * 동일한 메모리를 참조하기에 다른 모듈에서 수정시 원본에도 영향이 갑니다.
+ */
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -21,11 +29,21 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+/**
+ * [분석]
+ * 3rd party 라이브러리 미들웨어를 사용할 경우 자체적으로 next함수가 포함되어 있다.
+ */
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
+  console.error('Error:', err);
   next(createError(404));
 });
+/**
+ * [분석]
+ * next()함수는  미들웨어 chaining을 위해 사용됩니다.
+ * 위는 404에러가 나올경우 아래 에러 핸들링으로 넘깁니다.
+ */
 
 // error handler
 app.use(function(err, req, res, next) {
@@ -35,7 +53,7 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.render('error',{ title: "Error", message: "ERROR" });
 });
 
 module.exports = app;
