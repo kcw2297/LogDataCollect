@@ -1,8 +1,9 @@
 ## 로그데이터 수집 토이 프로젝트
 
-## 폴더 구조
+### 기술스택
+express kafka opensearch 
 
-생성 : **npx express-generator**
+## 폴더 구조
 
 폴더 구조 :  
 ├── app.js  
