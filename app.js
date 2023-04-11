@@ -9,8 +9,8 @@ import expressEjsLayouts from "express-ejs-layouts";
 
 // Modules
 import {indexRouter} from "./routes/indexRouter.js";
-import {usersRouter} from "./routes/usersRouter.js";
 import {chartRouter} from "./routes/chartRouter.js";
+import { documentRouter } from "./routes/documentRouter.js";
 
 const app = express();
 /**
@@ -39,8 +39,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
-app.use("/users", usersRouter);
 app.use("/charts", chartRouter);
+app.use('/documents', documentRouter);
 /**
  * [분석]
  * 3rd party 라이브러리 미들웨어를 사용할 경우 자체적으로 next함수가 포함되어 있다.

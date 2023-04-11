@@ -1,12 +1,12 @@
-version: "3"
-services:
-  opensearch-node1: # This is also the hostname of the container within the Docker network (i.e. https://opensearch-node1/)
-    image: opensearchproject/opensearch:latest # Specifying the latest available image - modify if you want a specific version
-    container_name: opensearch-node1
-    environment:
-      - cluster.name=opensearch-cluster # Name the cluster
-      - node.name=opensearch-node1 # Name the node that will run in this container
-      - discovery.seed_hosts=opensearch-node1,opensearch-node2 # Nodes to look for when discovering the cluster
+version: "3" # docker compose 버전입니다.
+services: # 컨테이너 혹은 서비스를 정의하는 구간입니다.
+  opensearch-node1: # 컨테이너 호스트 네임입니다.
+    image: opensearchproject/opensearch:latest # 가장 최신 이미지를 가져옵니다.
+    container_name: opensearch-node1 # 컨테이너 이름을 정의합니다. 만약 정의하지 않으면, 프로젝트이름_서비스이름_인덱스 형태의 이름을 가집니다.
+    environment: # 환경 변수를 설정합니다.
+      - cluster.name=opensearch-cluster # 클러스터 이름을 정의합니다.
+      - node.name=opensearch-node1 # 컨테이너에서 실행할 노드 이름을 정의합니다.
+      - discovery.seed_hosts=opensearch-node1,opensearch-node2 # 클러스터를 탐색 시 찾을 노드 이름입니다.
       - cluster.initial_cluster_manager_nodes=opensearch-node1,opensearch-node2 # Nodes eligible to serve as cluster manager
       - bootstrap.memory_lock=true # Disable JVM heap memory swapping
       - "OPENSEARCH_JAVA_OPTS=-Xms512m -Xmx512m" # Set min and max JVM heap sizes to at least 50% of system RAM
