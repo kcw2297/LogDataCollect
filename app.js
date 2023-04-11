@@ -5,10 +5,11 @@ import path from "path";
 import cookieParser from "cookie-parser";
 import logger from "morgan";
 import { fileURLToPath } from "url";
+import expressEjsLayouts from "express-ejs-layouts";
 
 // Modules
-import indexRouter from "./routes/indexRouter.js";
-import usersRouter from "./routes/usersRouter.js";
+import {indexRouter} from "./routes/indexRouter.js";
+import {usersRouter} from "./routes/usersRouter.js";
 const app = express();
 /**
  * [분석]
@@ -25,6 +26,7 @@ const __dirname = path.dirname(__filename);
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
+app.use(expressEjsLayouts);
 
 // Middleware Setting
 app.use(logger("dev"));
@@ -36,7 +38,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
-app.use("/users", usersRouter);
+app.use("/", usersRouter);
 /**
  * [분석]
  * 3rd party 라이브러리 미들웨어를 사용할 경우 자체적으로 next함수가 포함되어 있다.
@@ -61,7 +63,7 @@ app.use(function (err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render("error", { title: "Error", message: "ERROR" });
+  res.send(`err: ${err}`);
 });
 
 export default app;

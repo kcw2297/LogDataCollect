@@ -1,11 +1,12 @@
 // Libraries
 import express from "express";
 
-export const router = express.Router();
+// Modules
+import {getIndex} from "../controllers/indexController.js";
+
+export const indexRouter = express.Router();
 
 /* GET home page. */
-router.get("/", function (req, res, next) {
-  res.render("index", { title: "Express" });
-});
+indexRouter.get("/", getIndex);
 
-export default router;
+// export default router;

@@ -1,5 +1,4 @@
 export function getIndex(req, res, next) {
-  res.send("Hello World");
+  const data = {num:123};
+  res.render('index',data)
 }
-
-export default getIndex;

@@ -1,13 +1,12 @@
 // Libraries
 import express from 'express';
 
+// modules
+import {getUsers} from '../controllers/usersController.js';
 
-
-const router = express.Router();
+export const usersRouter = express.Router();
 
 /* GET users listing. */
-router.get('/cool', function(req, res) {
-  res.send('You\'re so Cool');
-});
+usersRouter.get('/cool', getUsers);
 
-export default router
+// export default router
