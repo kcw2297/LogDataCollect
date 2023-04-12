@@ -1,10 +1,7 @@
-
-
 export function getPieChart(req, res, next) {
-    res.render('pieChart');
-  }
-
+  res.render("pieChart");
+}
 
 export function getLineChart(req, res, next) {
-  res.render('lineChart');
+  res.render("lineChart");
 }
