@@ -4,8 +4,8 @@ import {create, search} from "../models/document.js"
 export async function searchDocument(req, res){
   try{
     const response = await search();
-    // res.json(response);
-    res.send(response);
+    res.json(response);
+    // res.send(response);
   } catch(error){
     console.log(`Error in searchDocument : ${error}`);
     res.status(404).json({error: error.message});

@@ -62,7 +62,7 @@ services: # 컨테이너 혹은 서비스를 정의하는 구간입니다.
     ports:
       - 3000:3000
     environment:
-      - NODE_ENV=production
+      - NODE_ENV=development
     depends_on:
       - opensearch-node1
       - opensearch-node2

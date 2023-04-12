@@ -11,11 +11,16 @@ const query = {
 }
 
 export async function search(){
-    const response = await client.search({
+    console.log(`[분석][cleint]client:` ,client);
+    try {
+    const response = await client.count({
         index : indexName,
-        body : query
+        //body : query
     });
-    return response
+    console.log('count',response)
+    return response;
+} catch(e) { console.log('Error',e); return {};
+}
 }
 
 
