@@ -5,6 +5,6 @@ export function getPieChart(req, res, next) {
   }
 
 
-  export function getLineChart(req, res, next) {
-    res.render('lineChart');
-  }
+export function getLineChart(req, res, next) {
+  res.render('lineChart');
+}
