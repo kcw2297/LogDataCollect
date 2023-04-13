@@ -56,21 +56,22 @@ services: # 컨테이너 혹은 서비스를 정의하는 구간입니다.
       OPENSEARCH_HOSTS: '["https://opensearch-node1:9200","https://opensearch-node2:9200"]' # Define the OpenSearch nodes that OpenSearch Dashboards will query
     networks:
       - opensearch-net
-  express-app:
-    build: .
-    container_name: express-app
-    ports:
-      - 3000:3000
-    environment:
-      - NODE_ENV=development
-      - OPENSEARCH_URL=https://opensearch-node1:9200,https://opensearch-node2:9200
-      - OPENSEARCH_USERNAME=admin
-      - OPENSEARCH_PASSWORD=admin
-    depends_on:
-      - opensearch-node1
-      - opensearch-node2
-    networks:
-      - opensearch-net
+  # [Info] : Uncomment this code block when deploy
+  # express-app:
+  #   build: .
+  #   container_name: express-app
+  #   ports:
+  #     - 3000:3000
+  #   environment:
+  #     - NODE_ENV=development
+  #     - OPENSEARCH_URL=https://opensearch-node1:9200,https://opensearch-node2:9200
+  #     - OPENSEARCH_USERNAME=admin
+  #     - OPENSEARCH_PASSWORD=admin
+  #   depends_on:
+  #     - opensearch-node1
+  #     - opensearch-node2
+  #   networks:
+  #     - opensearch-net
 
 volumes:
   opensearch-data1:

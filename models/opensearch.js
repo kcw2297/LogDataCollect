@@ -3,13 +3,13 @@ import { Client } from "@opensearch-project/opensearch";
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
 export const client = new Client({
-  // Development
+  // [Info] Development
   node: "https://localhost:9200",
   auth: {
     username: "admin",
     password: "admin",
   },
-  // Docker image
+  // [Info] Docker image
   // node: process.env.OPENSEARCH_URL.split(","),
   // auth: {
   //   username: process.env.OPENSEARCH_USERNAME,

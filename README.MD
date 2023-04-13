@@ -3,26 +3,6 @@
 ### 기술스택
 express kafka opensearch 
 
-## 폴더 구조
-
-폴더 구조 :  
-├── app.js  
-├── bin  
-│ └── www  
-├── package.json  
-├── public  
- │ ├── images  
- │ ├── javascripts  
- │ └── stylesheets  
- │ └── style.css  
-├── routes  
-│ ├── index.js  
-│ └── users.js  
-└── views  
-    ├── error.pug  
-    ├── index.pug  
-    └── layout.pug
-
 ## 실행 방법
 
 [ Max/ Linux 실행 ]
