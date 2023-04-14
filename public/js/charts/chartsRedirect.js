@@ -1,7 +1,7 @@
-document.getElementById("pie").addEventListener("click", () => {
+$("#pie").on("click", () => {
   window.location.href = "/charts/pie";
 });
 
-document.getElementById("line").addEventListener("click", () => {
+$("#line").on("click", () => {
   window.location.href = "/charts/line";
 });

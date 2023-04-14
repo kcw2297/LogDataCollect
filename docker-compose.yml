@@ -56,7 +56,7 @@ services: # 컨테이너 혹은 서비스를 정의하는 구간입니다.
       OPENSEARCH_HOSTS: '["https://opensearch-node1:9200","https://opensearch-node2:9200"]' # Define the OpenSearch nodes that OpenSearch Dashboards will query
     networks:
       - opensearch-net
-  # [Info] : Uncomment this code block when deploy
+  # [Info] : Uncomment this code block on production
   # express-app:
   #   build: .
   #   container_name: express-app

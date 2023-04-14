@@ -8,9 +8,15 @@
     <!-- Local Modules -->
     <link rel="stylesheet" href="./stylesheets/style.css" />
     <!-- 3rd Parties Modules -->
-    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <!-- jquery CDN 다운 받으세요! -->
+    <script defer src="https://code.highcharts.com/highcharts.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.fancytree/2.38.0/skin-win8/ui.fancytree.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.fancytree/2.38.0/jquery.fancytree-all.min.js"></script>
+
   </head>
   <body>
+   <!-- 별도 import export용 js파일을 생성합니다. -->
+    <div id="tree"></div>
     <%- body %>
   </body>
 </html>

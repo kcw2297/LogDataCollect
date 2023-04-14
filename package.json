@@ -17,6 +17,8 @@
     "highcharts": "^10.3.3",
     "http-errors": "~1.6.3",
     "jade": "^0.29.0",
+    "jquery": "^3.6.4",
+    "jquery.fancytree": "^2.38.3",
     "morgan": "~1.9.1"
   },
   "devDependencies": {
