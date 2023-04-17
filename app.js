@@ -11,6 +11,7 @@ import expressEjsLayouts from "express-ejs-layouts";
 import {indexRouter} from "./routes/indexRouter.js";
 import {chartRouter} from "./routes/chartRouter.js";
 import { documentRouter } from "./routes/documentRouter.js";
+import { fancytreeRouter } from "./routes/fanctytreeRouter.js";
 
 const app = express();
 
@@ -33,10 +34,11 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use('/node_modules', express.static(__dirname + '/node_modules'));
 
 
-// Routing SEtting
+// Routing Setting
 app.use("/", indexRouter);
 app.use("/charts", chartRouter);
 app.use('/documents', documentRouter);
+app.use('/fancytrees',fancytreeRouter);
 
 
 // catch 404 and forward to error handler
