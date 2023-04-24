@@ -12,6 +12,7 @@ import {indexRouter} from "./routes/indexRouter.js";
 import {chartRouter} from "./routes/chartRouter.js";
 import { documentRouter } from "./routes/documentRouter.js";
 import { fancytreeRouter } from "./routes/fanctytreeRouter.js";
+import {aceRouter} from "./routes/aceRouter.js";
 
 const app = express();
 
@@ -39,6 +40,7 @@ app.use("/", indexRouter);
 app.use("/charts", chartRouter);
 app.use('/documents', documentRouter);
 app.use('/fancytrees',fancytreeRouter);
+app.use("/ace",aceRouter);
 
 
 // catch 404 and forward to error handler
