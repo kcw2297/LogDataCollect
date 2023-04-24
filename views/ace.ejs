@@ -1,1 +1,22 @@
+<!-- Modules -->
+<script>
+    // Function to dynamically load the ace.js script
+    function loadAceScript() {
+      const script = document.createElement('script');
+      script.src = './js/ace/ace.js';
+      script.type = 'text/javascript';
+      script.charset = 'utf-8';
+      document.body.appendChild(script);
+    }
+  
+    // Load the ace.js script when the Ace.js library is ready
+    if (window.ace) {
+      loadAceScript();
+    } else {
+      window.addEventListener('load', loadAceScript);
+    }
+  </script>
+  
+
+
 <div id="editor">console.log('Hello, world!');</div>

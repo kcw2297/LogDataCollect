@@ -1,10 +1,11 @@
-const editor = ace.editor("editor");
+const editor = ace.edit("editor");
+
 
 editor.setTheme("ace/theme/monokai");
 editor.session.setMode("ace/mode/javascript");
 
 editor.setOptions({
-    fontSize: "14pt",
+    fontSize: "40pt",
     enableBasicAutocompletion: true,
     enableSnippets: true,
     enableLiveAutocompletion: true
